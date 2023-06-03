@@ -11,18 +11,23 @@ const tl = gsap.timeline({
 });
 
 let windowWidth = window.innerWidth;
+let resizeTimer;
 
 init();
 
 function init() {
-    detectIfMobile(windowWidth);
-    registerNavTimeline();
+    changeFeaturedImageSource(windowWidth);
+    windowWidth < 768 && registerNavTimeline();
 
     navicon.addEventListener('click', toggleMobileMenu);
     window.addEventListener('resize', () => {
         if (window.innerWidth !== windowWidth) {
             windowWidth = window.innerWidth;
-            detectIfMobile(windowWidth);
+
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function () {
+                window.location.reload();
+            }, 250);
         }
     });
 }
@@ -51,7 +56,7 @@ function toggleMobileMenu() {
     isActive ? tl.reverse(0) : tl.play();
 }
 
-function detectIfMobile(windowWidth) {
+function changeFeaturedImageSource(windowWidth) {
     const isMobile = windowWidth < 768;
     const defaultSrc = featuredImage.getAttribute('src');
     const mobileSrc = featuredImage.getAttribute('data-mobile-src');
