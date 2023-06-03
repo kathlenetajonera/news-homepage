@@ -5,6 +5,10 @@ p {
     line-height: 1.5;
 }
 
+body {
+    background-color: $white;
+}
+
 .container {
     max-width: em(1110);
     margin: em(90) auto em(130);

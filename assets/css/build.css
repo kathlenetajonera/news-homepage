@@ -279,6 +279,10 @@ p {
   line-height: 1.5;
 }
 
+body {
+  background-color: #fffdfa;
+}
+
 .container {
   max-width: 69.375em;
   margin: 5.625em auto 8.125em;
@@ -573,7 +577,7 @@ p {
   color: #c5c6ce;
 }
 .latest__item .news-title {
-  margin: 0.875em 0;
+  margin: 0.75em 0;
 }
 .latest__thumbnail img {
   width: 6.25em;
