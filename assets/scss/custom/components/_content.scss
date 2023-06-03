@@ -1,0 +1,141 @@
+.content {
+    &__main {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-gap: em(30);
+        margin: em(55) 0 em(70);
+
+        @include breakpoint(tablet) {
+            grid-template-columns: 1fr;
+            grid-gap: em(65);
+        }
+
+        @include breakpoint(mobile) {
+            margin-top: 0;
+        }
+    }
+
+    .news-title {
+        font-family: $semiBoldFont;
+        font-size: em(18);
+        color: $darkBlue;
+        transition: color 0.3s ease;
+    }
+}
+
+.featured {
+    &__content-wrapper {
+        display: flex;
+        margin-top: em(35);
+
+        @include breakpoint(mobile) {
+            flex-direction: column;
+        }
+    }
+
+    &__title {
+        h1 {
+            font-family: $boldFont;
+            font-size: em(48);
+            margin: 0;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-left: em(80);
+
+        @include breakpoint(mobile) {
+            margin: em(25) 0 0 0;
+        }
+    }
+
+    &__excerpt {
+        margin-bottom: em(45);
+    }
+}
+
+.aside {
+    background-color: $darkBlue;
+    padding: em(30) em(25);
+
+    h2 {
+        font-family: $semiBoldFont;
+        font-size: em(40);
+        color: $orange;
+    }
+
+    &__item {
+        display: block;
+        text-decoration: none;
+        padding-top: em(35);
+
+        &:hover {
+            .news-title {
+                color: $orange;
+            }
+        }
+
+        &:not(:last-child) {
+            padding-bottom: em(35);
+            border-bottom: 1px solid $darkGrayishBlue;
+        }
+
+        .news-title {
+            color: $white;
+            margin-bottom: em(10);
+        }
+
+        p {
+            color: $grayishBlue;
+        }
+    }
+}
+
+.latest {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: em(45);
+
+    @include breakpoint(tablet) {
+        grid-template-columns: 1fr;
+        grid-gap: em(30);
+    }
+
+    &__item {
+        display: flex;
+        text-decoration: none;
+
+        &:hover {
+            .news-title {
+                color: $red;
+            }
+        }
+
+        span {
+            display: block;
+            font-family: $semiBoldFont;
+            font-size: em(32);
+            color: $grayishBlue;
+        }
+
+        .news-title {
+            margin: em(14) 0;
+        }
+    }
+
+    &__thumbnail {
+        img {
+            width: em(100);
+            height: 100%;
+        }
+    }
+
+    &__content {
+        flex: 1;
+        margin-left: em(25);
+    }
+}

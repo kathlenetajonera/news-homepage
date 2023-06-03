@@ -1,0 +1,125 @@
+.nav {
+    @extend .flex-between;
+    margin-bottom: em(55);
+
+    @include breakpoint(mobile) {
+        position: sticky;
+        top: 0;
+        background-color: $white;
+        padding: em(25) 0;
+        margin-bottom: 0;
+    }
+
+    &::before {
+        content: '';
+        background-color: $darkBlue;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+    }
+
+    &.active {
+        .nav__burger {
+            &:first-child {
+                transform: rotate(45deg);
+            }
+
+            &:nth-child(2) {
+                opacity: 0;
+            }
+
+            &:last-child {
+                transform: rotate(-45deg);
+            }
+        }
+
+        .nav__menu {
+            display: block;
+        }
+
+        &::before {
+            opacity: 0.5;
+        }
+    }
+
+    &__menu {
+        @extend .flex-center;
+
+        @include breakpoint(mobile) {
+            display: none;
+            position: fixed;
+            background: $white;
+            width: 250px;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: em(150) em(25);
+        }
+    }
+
+    &__item {
+        &:not(:last-child) {
+            margin-right: em(40);
+        }
+
+        @include breakpoint(mobile) {
+            &:not(:last-child) {
+                margin-right: 0;
+            }
+
+            margin-bottom: em(35);
+        }
+    }
+
+    &__link {
+        font-family: $mainFont;
+        font-size: em(15);
+        color: $darkGrayishBlue;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: $orange;
+        }
+
+        @include breakpoint(mobile) {
+            font-size: em(18);
+        }
+    }
+
+    &__navicon {
+        display: none;
+
+        @include breakpoint(mobile) {
+            display: block;
+        }
+    }
+
+    &__burger {
+        display: block;
+        width: em(45);
+        height: em(3);
+        background-color: $darkBlue;
+        transition: 0.3s ease;
+
+        &:not(:last-child) {
+            margin-bottom: 5px;
+        }
+
+        &:first-child {
+            transform-origin: 17px -6px;
+        }
+
+        &:last-child {
+            transform-origin: 1px 2px;
+        }
+    }
+}
