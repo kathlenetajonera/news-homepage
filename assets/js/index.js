@@ -4,12 +4,19 @@ const menu = document.querySelector('.nav__menu');
 const navItems = document.querySelectorAll('.nav__item');
 const featuredImage = document.querySelector('.featured__image img');
 
+const tl = gsap.timeline({
+    paused: true,
+    onStart: () => nav.classList.add('active'),
+    onReverseComplete: () => nav.classList.remove('active'),
+});
+
 let windowWidth = window.innerWidth;
 
 init();
 
 function init() {
     detectIfMobile(windowWidth);
+    registerNavTimeline();
 
     navicon.addEventListener('click', toggleMobileMenu);
     window.addEventListener('resize', () => {
@@ -20,21 +27,13 @@ function init() {
     });
 }
 
-function toggleMobileMenu() {
-    const isActive = nav.classList.contains('active');
-
+function registerNavTimeline() {
     const setInitialValues = () => {
         gsap.set(menu, { x: 0, autoAlpha: 1 });
         gsap.set(navItems, { x: 0, autoAlpha: 1 });
     };
 
     setInitialValues();
-
-    const tl = gsap.timeline({
-        paused: true,
-        onStart: () => nav.classList.add('active'),
-        onReverseComplete: () => nav.classList.remove('active'),
-    });
 
     tl.from(menu, {
         autoAlpha: 0,
@@ -45,7 +44,10 @@ function toggleMobileMenu() {
         x: 20,
         stagger: 0.1,
     });
+}
 
+function toggleMobileMenu() {
+    const isActive = nav.classList.contains('active');
     isActive ? tl.reverse(0) : tl.play();
 }
 
