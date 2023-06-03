@@ -16,3 +16,8 @@ button {
     outline: none;
     border: none;
 }
+
+.animated-fade,
+.animated-stagger-bottom > * {
+    visibility: hidden;
+}

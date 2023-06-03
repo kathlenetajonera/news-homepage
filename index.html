@@ -16,12 +16,12 @@
     </head>
     <body>
         <div class="container">
-            <nav class="nav">
+            <nav class="nav animated-stagger-bottom">
                 <div class="nav__logo">
                     <img src="./assets/images/logo.svg" alt="logo" />
                 </div>
 
-                <div class="nav__menu">
+                <div class="nav__menu animated-stagger-bottom">
                     <div class="nav__item">
                         <a href="#" class="nav__link">Home</a>
                     </div>
@@ -48,7 +48,7 @@
 
             <div class="content">
                 <div class="content__main">
-                    <div class="featured">
+                    <div class="featured animated-fade">
                         <div class="featured__image">
                             <img
                                 src="./assets/images/image-web-3-desktop.jpg"
@@ -82,36 +82,43 @@
                     </div>
 
                     <div class="aside">
-                        <h2>New</h2>
+                        <div class="animated-fade">
+                            <h2>New</h2>
+                        </div>
 
-                        <a href="#" class="aside__item">
-                            <h3 class="news-title">
-                                Hydrogen VS Electric Cars
-                            </h3>
-                            <p>
-                                Will hydrogen-fueled cars ever catch up to EVs?
-                            </p>
-                        </a>
-                        <a href="#" class="aside__item">
-                            <h3 class="news-title">
-                                The Downsides of AI Artistry
-                            </h3>
-                            <p>
-                                What are the possible adverse effects of
-                                on-demand AL image generation?
-                            </p>
-                        </a>
-                        <a href="#" class="aside__item">
-                            <h3 class="news-title">Is VC Funding Drying Up?</h3>
-                            <p>
-                                Private funding by VC firms is down 50% YOY. We
-                                take a look at what that means.
-                            </p>
-                        </a>
+                        <div class="animated-stagger-bottom">
+                            <a href="#" class="aside__item">
+                                <h3 class="news-title">
+                                    Hydrogen VS Electric Cars
+                                </h3>
+                                <p>
+                                    Will hydrogen-fueled cars ever catch up to
+                                    EVs?
+                                </p>
+                            </a>
+                            <a href="#" class="aside__item">
+                                <h3 class="news-title">
+                                    The Downsides of AI Artistry
+                                </h3>
+                                <p>
+                                    What are the possible adverse effects of
+                                    on-demand AL image generation?
+                                </p>
+                            </a>
+                            <a href="#" class="aside__item">
+                                <h3 class="news-title">
+                                    Is VC Funding Drying Up?
+                                </h3>
+                                <p>
+                                    Private funding by VC firms is down 50% YOY.
+                                    We take a look at what that means.
+                                </p>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="content__latest latest">
+                <div class="content__latest latest animated-stagger-bottom">
                     <a href="#" class="latest__item">
                         <div class="latest__thumbnail">
                             <img
@@ -161,7 +168,7 @@
             </div>
         </div>
 
-        <div class="attribution">
+        <div class="attribution animated-fade">
             Challenge by
             <a
                 href="https://www.frontendmentor.io?ref=challenge"
@@ -173,6 +180,10 @@
             >.
         </div>
 
+        <script src="./assets/js/vendor/gsap.min.js"></script>
+        <script src="./assets/js/vendor/ScrollTrigger.min.js"></script>
+
         <script src="./assets/js/index.js" defer></script>
+        <script src="./assets/js/animation.js" defer></script>
     </body>
 </html>
